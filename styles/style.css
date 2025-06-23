@@ -20,6 +20,7 @@ body {
   line-height: 94%;
   text-transform: uppercase;
   margin: 0;
+  margin-bottom: 5px;
 }
 
 .content__accent {
@@ -54,6 +55,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
+
 }
 
 .result__video-container {
@@ -68,17 +70,16 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  position: absolute;  
+  margin-top: -2px;
 }
 
 .search-form {
   display: flex;
   flex-direction: row;
-  gap: 40px;
+  gap: 30px;
   width: inherit;
-  height: 54px;
   justify-content: space-between; /* Распределяем пространство между элементами */
-  align-items: flex-start; /* Прижимаем элементы к началу контейнера (верхней границе) */
+  align-items:center;
 }
 
 .search-form__checkbox-list {
@@ -131,37 +132,45 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   display: flex;
   align-items: center;
   width: fit-content; /* Важно для минимальной ширины, необходимой для контента */
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
 }
 
 .search-form__label input {
-  /* Дополнительное стили для инпута, например, отступы */
-  padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  appearance: none; 
+  width: 225px;
+  margin-top: 2px;
+  margin-left: -2px;
 }
 
 .search-form .search-form__label { /* Добавляем .search-form в начало */
   display: flex;
   align-items: center;
   width: fit-content;
-  
+}
+
+.search-form__label-text:hover{
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .search-form .search-form__label input {
-  padding: 8px;
   border: none; /* Убираем стандартную рамку */
   border-radius: 4px;
-  margin: 0 5px;
   color: #fff; /* Светлый цвет текста */
   background: transparent;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  appearance: none; 
 }
 
-.search-form .search-form__label input:hover,
+.search-form .search-form__label input:hover{
+  outline: none;
+}
+
 .search-form .search-form__label input:focus {
   border: 1px solid #fff;
-  outline: none; /* Обязательно убираем стандартный outline */
+  outline: none;
 }
 
 .search-form .search-form__label input:focus-visible {
@@ -170,13 +179,13 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
 }
 
 .search-form .search-form__label input::placeholder { /* Стиль для placeholder */
-  color: #ccc; /* Цвет placeholder */
-  opacity: 1; /* Для некоторых браузеров */
+  color: #ccc; 
+  opacity: 1;
 }
 
 .search-form__label:has(.search-form__checkbox:focus-visible) {
-  outline: 1px solid blue; /* Цвет обводки */
-  outline-offset: 2px; /* Отступ от границы, чтобы не сливалась с ней */
+  outline: 1px solid blue; 
+  outline-offset: 2px; 
 }
 
 /* Стили для текста чекбокса (подчеркивание при наведении на label) */
@@ -193,8 +202,7 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   appearance: none;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
-  padding: 0;
-  margin: 0;
+  line-height: 100%;
 }
 
 .search-form__textfield:hover {
@@ -207,7 +215,7 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
 
 .search-form__textfield input {
   outline: none;
-
+  appearance: none; 
 }
 
 .search-form__textfield:focus-visible {
@@ -224,32 +232,25 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   border: 1px solid #fff;
 }
 
-.search-form__checkbox-list {
-  display: flex;
-  gap: 15px;
-}
 
 .search-form__fieldset {
-  border: none;   /* Убираем рамку */
-  padding: 0;    /* Также убираем отступы, чтобы не было лишнего пространства */
+  border: none; 
+  padding: 0;  
+  margin: 0; 
 }
-
-
 
 .search-form__fieldset-title {
  font-size: 18px;
  font-weight: 400;
  line-height: 100%;
  margin: 0;
- margin-bottom: 7.5px;
+ margin-bottom: 5px;
 }
 
 .content__details {
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* выравнивание контента по вертикали*/
-  width: 399px;              /* Растягиваем на всю ширину */
-  height: auto; 
   gap: 15px;
   width: 100%;
   height: 100%;
@@ -259,10 +260,8 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   position: relative;
   height: 298px;
   overflow-y: auto;
-  overflow-x: auto;
   display: flex;
   flex-direction: column;
-  max-height: 534px;
   width: 399px;
   gap: 30px;
 }
@@ -273,8 +272,6 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   gap: 30px;
   padding: 0;
   margin: 0;
-  max-height: 298px; /* Задайте желаемую максимальную высоту */
-  overflow-y: auto; /* Включаем вертикальную прокрутку */
   -webkit-overflow-scrolling: touch; /* Для плавного скроллинга на iOS */
 }
 
@@ -322,8 +319,6 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
 }
 
 .content__video-card-description {
-  padding-top: 5px;
-  font-family: "Fira Sans Condensed", sans-serif;
   font-size: inherit; 
   font-weight: 400;
   text-overflow: ellipsis;
@@ -333,6 +328,7 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   display: -webkit-box; 
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical; 
+  margin-top: 3px;
 }
 
 .content__video-card-title {
@@ -344,20 +340,22 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   overflow: hidden;          /* Скрываем текст, выходящий за границы элемента */
   text-overflow: ellipsis;  /* Заменяем излишний текст на "..." */
   text-transform: uppercase;
+  margin: 0;
+  padding-top: 5px;
 }
 
 .content__video-card-thumbnail {
   width: 194px;
-  height: 103px;
-  object-position: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center; /* Выравниваем изображение по центру контейнера */
+  margin-right: 8px;
 }
 
 .content__video-card-description-container {
   flex-grow: 1;
   overflow: hidden;
-
+  height: 100%;
 }
 
 .button {
@@ -374,7 +372,7 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
 }
 
 /* Сброс фокуса */
-.button:focus {
+.button:focus:not(:focus-visible) {
     outline: none;
 }
 
@@ -384,21 +382,26 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   align-self: flex-end;   /* Размещаем в конце контейнера search-form */
   width: 194px;    
   height: 34px;
-  padding: 0;
+  text-transform: none;
+  font-weight: 700;
+  padding: 2px;
 }
 
 /* Стили для кнопки "Показать ещё" */
 .more-button {
-  width: 100%;           /* Растягиваем на всю ширину контейнера */
+  width: 100%;          
+  text-transform: none;
+  font-weight: 700;
 }
 
 /* Общие стили для состояний (hover, active, focus-visible) */
 .button:hover {
-  text-decoration: underline; /* Подчёркивание при наведении */
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .button:active {
-  background-color: #545050; /* Цвет фона активной кнопки */
+  background-color: #545050; 
 }
 
 .button:focus-visible {
