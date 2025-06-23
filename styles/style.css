@@ -13,6 +13,16 @@ body {
   margin: 0; /*удаляю стандартные отступы браузера для боди*/
 }
 
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .title {
   font-family: "Oswald", sans-serif;
   font-weight: 700;
@@ -55,7 +65,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
-
 }
 
 .result__video-container {
@@ -70,7 +79,6 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  margin-top: -2px;
 }
 
 .search-form {
@@ -80,6 +88,94 @@ body {
   width: inherit;
   justify-content: space-between; /* Распределяем пространство между элементами */
   align-items:center;
+}
+
+.search-form__fieldset {
+  border: none; 
+  padding: 0;  
+  margin: 0; 
+}
+
+.search-form__fieldset-title {
+ font-size: 18px;
+ font-weight: 400;
+ line-height: 100%;
+ margin: 0;
+ margin-bottom: 5px;
+}
+
+.search-form .search-form__label { /* Добавляем .search-form в начало */
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.search-form__label input {
+  border: none; /* Убираем стандартную рамку */
+  border-radius: 4px;
+  color: #fff; /* Светлый цвет текста */
+  background: transparent;
+  appearance: none; 
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  margin-top: 2px;
+  margin-left: -2px;
+}
+
+.search-form__label:has(.search-form__checkbox:focus-visible) {
+  outline: 1px solid blue; 
+  outline-offset: 2px; 
+}
+
+.search-form__label input::placeholder { /* Стиль для placeholder */
+  color: #ccc; 
+  opacity: 1;
+}
+
+/* Стили для текста чекбокса (подчеркивание при наведении на label) */
+.search-form__label:hover .search-form__checkbox-label-text {
+  text-decoration: underline;
+}
+
+.search-form__textfield {
+  min-inline-size: 225px;
+  min-block-size: 27px;
+  border: none;
+  border-block-start: 1px solid #fff;
+  border-block-end: 1px solid #fff;
+  color: #fff;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  appearance: none;
+}
+
+.search-form__label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+/* у поля ввода убираем нативный outline */
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__textfield:focus-visible {
+  outline: none;
+}
+
+/* если внутри .search-form__label есть поле ввода активное */
+.search-form__label:has(.search-form__textfield:active) {
+  outline: none;
+  border-left: 1px solid #FFF;
+  border-right: 1px solid #FFF;
 }
 
 .search-form__checkbox-list {
@@ -128,123 +224,15 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   display: block;
 }
 
-.search-form__label {
-  display: flex;
-  align-items: center;
-  width: fit-content; /* Важно для минимальной ширины, необходимой для контента */
-}
-
-.search-form__label input {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  appearance: none; 
-  width: 225px;
-  margin-top: 2px;
-  margin-left: -2px;
-}
-
-.search-form .search-form__label { /* Добавляем .search-form в начало */
-  display: flex;
-  align-items: center;
-  width: fit-content;
-}
-
 .search-form__label-text:hover{
   text-decoration: underline;
   cursor: pointer;
 }
 
-.search-form .search-form__label input {
-  border: none; /* Убираем стандартную рамку */
-  border-radius: 4px;
-  color: #fff; /* Светлый цвет текста */
-  background: transparent;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-  appearance: none; 
-}
-
-.search-form .search-form__label input:hover{
-  outline: none;
-}
-
-.search-form .search-form__label input:focus {
-  border: 1px solid #fff;
-  outline: none;
-}
-
-.search-form .search-form__label input:focus-visible {
-  outline: 1px solid #fff;
-  outline-offset: 2px; /* Чтобы outline не сливался с рамкой */
-}
-
-.search-form .search-form__label input::placeholder { /* Стиль для placeholder */
-  color: #ccc; 
-  opacity: 1;
-}
-
-.search-form__label:has(.search-form__checkbox:focus-visible) {
-  outline: 1px solid blue; 
-  outline-offset: 2px; 
-}
-
-/* Стили для текста чекбокса (подчеркивание при наведении на label) */
-.search-form__label:hover .search-form__checkbox-label-text {
-  text-decoration: underline;
-}
 
 /* Чтобы текст не перекрывался outline, добавляем span */
 .search-form__checkbox-label-text {
   /* По умолчанию ничего не стилизуем */
-}
-
-.search-form__textfield {
-  appearance: none;
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-size: 18px;
-  line-height: 100%;
-}
-
-.search-form__textfield:hover {
-  outline: none;
-}
-
-.search-form__textfield:focus {
-  outline: none;
-}
-
-.search-form__textfield input {
-  outline: none;
-  appearance: none; 
-}
-
-.search-form__textfield:focus-visible {
-  outline: none;
-}
-
-.search-form__label:has(:focus-visible) {
-  outline: 1px solid #fff;
-  outline-offset: 2px;
-}
-
-.search-form__textfield:active {
-  outline: none;
-  border: 1px solid #fff;
-}
-
-
-.search-form__fieldset {
-  border: none; 
-  padding: 0;  
-  margin: 0; 
-}
-
-.search-form__fieldset-title {
- font-size: 18px;
- font-weight: 400;
- line-height: 100%;
- margin: 0;
- margin-bottom: 5px;
 }
 
 .content__details {
@@ -286,7 +274,6 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   padding-left: 3px;
   height: 103px;
   width: 100%;
-  
 }
 
 .content__card-link:hover {
@@ -318,17 +305,10 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   justify-content: space-between;
 }
 
-.content__video-card-description {
-  font-size: inherit; 
-  font-weight: 400;
-  text-overflow: ellipsis;
-  overflow-wrap: break-word;
+.content__video-card-description-container {
+  flex-grow: 1;
   overflow: hidden;
-  line-clamp: 4;
-  display: -webkit-box; 
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical; 
-  margin-top: 3px;
+  height: 100%;
 }
 
 .content__video-card-title {
@@ -344,6 +324,19 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   padding-top: 5px;
 }
 
+.content__video-card-description {
+  font-size: inherit; 
+  font-weight: 400;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  line-clamp: 4;
+  display: -webkit-box; 
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical; 
+  margin-top: 3px;
+}
+
 .content__video-card-thumbnail {
   width: 194px;
   height: 100%;
@@ -352,11 +345,7 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   margin-right: 8px;
 }
 
-.content__video-card-description-container {
-  flex-grow: 1;
-  overflow: hidden;
-  height: 100%;
-}
+
 
 .button {
   border: 1px solid #fff;    /* Граница */
