@@ -138,7 +138,6 @@ body {
   background: transparent;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
-
 }
 
 .search-form__label {
@@ -243,8 +242,9 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  width: 399px;
+  width: 100%;
   gap: 30px;
+  padding-bottom: 3px;
 }
 
 .content__list {
@@ -264,7 +264,6 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   font-weight: 400;
   font-size: 18px;
   line-height: 16.2px;
-  padding-left: 3px;
   height: 103px;
 }
 
@@ -295,6 +294,7 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   flex-direction: row;    /* Располагаем элементы в строку */
   align-items: flex-start; /* Прижимаем элементы к началу контейнера по вертикальной оси */
   justify-content: space-between;
+  height: 103px;
 }
 
 .content__video-card-description-container {
@@ -308,6 +308,7 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   font-size: 30px;         
   font-weight: 700;    
   line-height: 100%;
+  width: 196px;
   white-space: nowrap;       /* Запрещаем перенос текста на новую строку */
   overflow: hidden;          /* Скрываем текст, выходящий за границы элемента */
   text-overflow: ellipsis;  /* Заменяем излишний текст на "..." */
@@ -334,7 +335,6 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   height: inherit;
   object-fit: cover;
   object-position: center; /* Выравниваем изображение по центру контейнера */
-  margin-right: 8px;
 }
 
 
@@ -346,10 +346,11 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   font-size: 18px;
   background-color: transparent; /* Прозрачный фон */
   cursor: pointer;          /* Курсор-указатель */
-  padding: 10px 20px;      /* Отступы внутри кнопки */
   box-sizing: border-box;   /* Чтобы padding не увеличивал размер */
   text-transform: uppercase; /* Преобразование текста в верхний регистр */
   outline: none;            /* Убираем стандартную обводку */
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 /* Сброс фокуса */
@@ -362,15 +363,16 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   display: block;
   align-self: flex-end;   /* Размещаем в конце контейнера search-form */
   width: 194px;    
-  height: 34px;
   text-transform: none;
   font-weight: 700;
-  padding: 2px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 /* Стили для кнопки "Показать ещё" */
 .more-button {
-  width: 100%;          
+  width: 390px;   
+  height: 34px;       
   text-transform: none;
   font-weight: 700;
 }
