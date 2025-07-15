@@ -121,7 +121,7 @@ body {
 }
 
 /* Стили для текста чекбокса (подчеркивание при наведении на label) */
-.search-form__label:hover .search-form__checkbox-label-text {
+.search-form__label:hover .search-form__label-text {
   text-decoration: underline;
 }
 
@@ -138,7 +138,7 @@ body {
   background: transparent;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
-  line-height: inherit%;
+  line-height: inherit;
 }
 
 .search-form__label {
@@ -197,9 +197,6 @@ body {
   cursor: pointer;
 }
 
-.search-form__pseudo-checkbox:hover {
-  border-color: #ccc; /* Изменяем цвет границы при наведении */
-}
 
 .search-form__pseudo-checkbox:focus {
   outline: 2px solid blue; /* Добавляем обводку при фокусе */
